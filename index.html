@@ -10,6 +10,8 @@
     <script>
         $(document).ready(function(){
             //adding new card w/ all info being stored
+            // var arrName = [];  // Variable to store name for returning name after clicking description
+
             $('form').submit(function(event){
                 event.preventDefault();
                 var x = document.getElementById("add_card");
@@ -30,6 +32,7 @@
                 //adding first and last names
                 for (var i = 0; i < 2; i++) {
                     text += "<h2>" + x.elements[i].value + "</h2>";
+                    // arrName[i]=x.elements[i];   // Attempt to store name as variable.  Error is here, name not attaching to variable correctly
                     //clearing the value
                     x.elements[i].value="";
                 }
@@ -42,7 +45,14 @@
                 })
                 //getting the description from "descr" parameter
                 $("#card_storage").on("click", ".contact_card", function(){
-                    $(this).html("<p>" + $(this).attr("descr") + "</p>");
+                    // if($(this).html()==("<p>" + $(this).attr("descr") + "</p>")){  ///IF statement to allow switching back from description.  This part works.
+                    //     $(this).html("<h2>" + arrName + "</h2>");
+                    //     console.log(arrName);
+                    // }
+                    // else{
+                        $(this).html("<p>" + $(this).attr("descr") + "</p>");
+                    // }
+                    
             });
         });    
     </script>
