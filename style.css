@@ -1,0 +1,54 @@
+*{
+    padding: 0px;
+    margin: 0px;
+}
+#wrapper{
+    width: 970px;
+    height: 500px;
+}
+h1:after {
+    content: ""; 
+    display: block;
+    width: 70%;
+    border-bottom: 2px solid rgb(0, 0, 0);
+    margin-bottom: 10px;
+}
+h2{
+    display: inline-block;
+    margin: 0px 5px;
+    font-size: 30px;
+    margin-top: 50px;
+}
+span{
+    display: block;
+    margin: 5px 0px;
+}
+p, input{
+    display: inline-block;
+    margin: 5px;
+}
+textarea{
+    margin-left: 5px;
+    margin-bottom: 5px;
+}
+#add_card{
+    display: inline-block;
+    width: 430px;
+    height: 500px;
+    padding: 10px;
+}
+#card_storage{
+    display: inline-block;
+    width: 430px;
+    vertical-align: top;
+    height: 500px;
+    padding: 10px;
+}
+.contact_card{
+    height: 160px;
+    width: 300px;
+    margin: 5px 0px;
+    text-align: center;
+    background-color: black;
+    color: white;
+}

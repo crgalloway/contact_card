@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Contact Cards</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <script>
+        $(document).ready(function(){
+            //adding new card w/ all info being stored
+            $('form').submit(function(event){
+                event.preventDefault();
+                var x = document.getElementById("add_card");
+                var text = "<div class='contact_card'";
+                //I use "descr" parameter to store the data from the textarea
+                //if there is any data...
+                if (x.elements.length > 2){
+                    text += ' descr="';
+                    for (var k = 2; k < x.elements.length-1; k++){
+                    text += x.elements[k].value;
+                    //clearing the value
+                    x.elements[k].value="";
+                }
+                    text += '"';
+                }
+                //closing div tag
+                text += ">";
+                //adding first and last names
+                for (var i = 0; i < 2; i++) {
+                    text += "<h2>" + x.elements[i].value + "</h2>";
+                    //clearing the value
+                    x.elements[i].value="";
+                }
+                text += "<span>Click for description!</span>"
+                text += "</div>";
+                //appending new card's html code
+                $('#card_storage').append(text);
+                //clearing the form
+                x.clear();  
+                })
+                //getting the description from "descr" parameter
+                $("#card_storage").on("click", ".contact_card", function(){
+                    $(this).html("<p>" + $(this).attr("descr") + "</p>");
+            });
+        });    
+    </script>
+</head>
+<body>
+    <div id="wrapper">
+        <form id="add_card" method="post">
+            <h1>Add User</h1>
+            <table>
+                <tr>
+                    <td> <p>First Name:</p></td>
+                    <td><input type="text" name="first_name"></td>
+                </tr>
+                <tr>
+                    <td><p>Last Name:</p></td>
+                    <td><input type="text" name="last_name"></td>
+                </tr>
+            </table>
+           <br>
+            <p>Description:</p><br>
+            <textarea name="description" placeholder="Enter description" rows="5" cols="30"></textarea>
+            <br>
+            <input type="submit" value="Add User">    
+        </form>
+        <div id="card_storage">
+            <h1>Contact Cards</h1>
+            <!-- we will add new cards -->
+        </div>
+    </div>
+</body>
+</html>
